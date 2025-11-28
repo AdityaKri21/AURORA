@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Enhancer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">Image Enhancer</h1>
+        <p class="subtitle">Upload a low resolution image to enhance it with AI super-resolution.</p>
+    </div>
+
+    <div class="main-card">
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-icon">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 10L12 5L17 10M12 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <p class="drag-text">Drag & drop your image</p>
+            <p class="or-text">or</p>
+            <button class="browse-btn" id="browseBtn">Browse files</button>
+            <p class="file-info">PNG, JPG up to ~10MB</p>
+            <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg" style="display: none;">
+        </div>
+
+        <div class="image-preview" id="imagePreview" style="display: none;">
+            <div class="comparison-container">
+                <div class="image-box">
+                    <h3 class="image-label">Original</h3>
+                    <img id="originalImage" class="comparison-image" alt="Original Image">
+                </div>
+                <div class="image-box">
+                    <h3 class="image-label">Enhanced</h3>
+                    <div class="image-placeholder" id="imagePlaceholder">
+                        <p>Click "Enhance" to see the result</p>
+                    </div>
+                    <img id="enhancedImage" class="comparison-image" alt="Enhanced Image" style="display: none;">
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="enhance-btn" id="enhanceBtn" disabled>Enhance</button>
+            <button class="download-btn" id="downloadBtn" disabled>Download</button>
+        </div>
+
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+            <div class="spinner"></div>
+            <p>Enhancing your image...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
