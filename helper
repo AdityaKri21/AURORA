@@ -1,0 +1,5 @@
+to run the model-
+  download json file of your kaggle and then upload it to the notebook and then accesss any dataset from kaggle.
+  or you can directly upload your dataset.
+for better psnr use a large dataset to train and more epochs.
+you can also take measures for overfitting.
